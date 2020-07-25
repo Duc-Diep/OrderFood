@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import java.io.Serializable;
 
-public class Food implements Parcelable {
+public class Food implements Parcelable,Serializable {
     int imgFood;
     String nameFood;
     int priceFood;

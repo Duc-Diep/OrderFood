@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     List<Food> foodList;
     IonClickFood ionClickFood;
@@ -60,7 +62,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                 ionClickFood.onClickName(food);
             }
         });
-
+        if(food.getAmount()>0){
+            holder.tvAmount.setVisibility(View.VISIBLE);
+            holder.tvright.setVisibility(View.VISIBLE);
+            holder.tvleft.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -69,8 +75,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvNameFood,tvPrice,tvAmount;
-        ImageView imgFood;
+        TextView tvNameFood,tvPrice,tvAmount,tvleft,tvright;
+        CircleImageView imgFood;
         RelativeLayout layout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,6 +84,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
              tvNameFood = itemView.findViewById(R.id.tvNamefood);
              tvPrice = itemView.findViewById(R.id.tvPrice);
              tvAmount = itemView.findViewById(R.id.tvAmount);
+             tvleft = itemView.findViewById(R.id.left);
+             tvright = itemView.findViewById(R.id.right);
              layout = itemView.findViewById(R.id.layoutItem);
         }
     }

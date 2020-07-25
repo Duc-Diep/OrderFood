@@ -44,13 +44,13 @@ public class MenuFood extends AppCompatActivity {
         //Xử lí RecycleView
         listMenu = new ArrayList<>();
         listCart = new ArrayList<>();
-        listMenu.add(new Food(R.drawable.ic_local_grocery_store_black_24dp,"Pizza",100));
-        listMenu.add(new Food(R.drawable.ic_local_grocery_store_black_24dp,"Pizza",110));
-        listMenu.add(new Food(R.drawable.ic_local_grocery_store_black_24dp,"Pizza",120));
-        listMenu.add(new Food(R.drawable.ic_local_grocery_store_black_24dp,"Pizza",120));
-        listMenu.add(new Food(R.drawable.ic_local_grocery_store_black_24dp,"Pizza",32));
-        listMenu.add(new Food(R.drawable.ic_local_grocery_store_black_24dp,"Pizza",35));
-        listMenu.add(new Food(R.drawable.ic_local_grocery_store_black_24dp,"Pizza",40));
+        listMenu.add(new Food(R.drawable.pizza,"Pizza Panda",100));
+        listMenu.add(new Food(R.drawable.kfc,"KFC Super",110));
+        listMenu.add(new Food(R.drawable.bread_egg,"Bread Eggs",15));
+        listMenu.add(new Food(R.drawable.cup_cake,"Cup cake",12));
+        listMenu.add(new Food(R.drawable.hamburger,"Hamburger",32));
+        listMenu.add(new Food(R.drawable.hotdog,"Hotdog",35));
+        listMenu.add(new Food(R.drawable.potato,"Potato",40));
 
         FoodAdapter adapter = new FoodAdapter(listMenu);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getBaseContext(),RecyclerView.VERTICAL,false);
@@ -66,7 +66,13 @@ public class MenuFood extends AppCompatActivity {
                 priceCounter+=food.getPriceFood();
                 tvPriceCounter.setText(String.valueOf(priceCounter));
                 mPossition = listMenu.indexOf(food);
-                listCart.add(food);
+                if(listCart.contains(food)){
+                    food.setAmount(food.getAmount()+1);
+                }
+                else{
+                    food.setAmount(food.getAmount()+1);
+                    listCart.add(food);
+                }
             }
 
             @Override
@@ -78,7 +84,13 @@ public class MenuFood extends AppCompatActivity {
                 priceCounter+=food.getPriceFood();
                 tvPriceCounter.setText(String.valueOf(priceCounter));
                 mPossition = listMenu.indexOf(food);
-                listCart.add(food);
+                if(listCart.contains(food)){
+                    food.setAmount(food.getAmount()+1);
+                }
+                else{
+                    food.setAmount(food.getAmount()+1);
+                    listCart.add(food);
+                }
             }
 
             @Override
@@ -90,7 +102,13 @@ public class MenuFood extends AppCompatActivity {
                 priceCounter+=food.getPriceFood();
                 tvPriceCounter.setText(String.valueOf(priceCounter));
                 mPossition = listMenu.indexOf(food);
-                listCart.add(food);
+                if(listCart.contains(food)){
+                    food.setAmount(food.getAmount()+1);
+                }
+                else{
+                    food.setAmount(food.getAmount()+1);
+                    listCart.add(food);
+                }
             }
         });
         //Button Order

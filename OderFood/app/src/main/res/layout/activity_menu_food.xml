@@ -26,10 +26,11 @@
             android:layout_height="@dimen/_30sdp">
         </ImageView>
         <TextView
+            android:paddingBottom="@dimen/_1sdp"
             android:id="@+id/tvcartCounter"
             android:layout_alignParentRight="true"
             android:text="0"
-            android:padding="@dimen/_1sdp"
+
             android:layout_centerVertical="true"
             android:textAlignment="center"
             android:background="@drawable/bordernumber"
