@@ -1,5 +1,6 @@
 package com.example.oderfood;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +26,8 @@ public class Cart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+        ActionBar ac = getSupportActionBar();
+        ac.hide();
         imgback = findViewById(R.id.imgBack);
         tvPrice = findViewById(R.id.tvPriceCounterOrder);
         rcvListOrder = findViewById(R.id.lvFoodOrder);
@@ -38,7 +41,7 @@ public class Cart extends AppCompatActivity {
             }
         });
         listOrder = new ArrayList<>();
-//        food = (Food) intent.getSerializableExtra("object");
+//      food = (Food) intent.getSerializableExtra("object");
         listOrder = (List<Food>) intent.getSerializableExtra("list");
         FoodAdapter foodAdapter = new FoodAdapter(listOrder);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getBaseContext(),RecyclerView.VERTICAL,false);

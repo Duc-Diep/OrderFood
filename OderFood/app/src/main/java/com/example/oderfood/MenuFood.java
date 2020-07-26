@@ -1,6 +1,8 @@
 package com.example.oderfood;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +32,8 @@ public class MenuFood extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_food);
+        ActionBar ac = getSupportActionBar();
+        ac.hide();
         tvUserName = findViewById(R.id.tvUserName);
         tvCartCounter = findViewById(R.id.tvcartCounter);
         tvPriceCounter = findViewById(R.id.tvPriceCounter);
@@ -118,6 +122,7 @@ public class MenuFood extends AppCompatActivity {
                 Toast.makeText(getBaseContext(),"Đơn hàng của bạn đã được gửi lên nhà hàng",Toast.LENGTH_SHORT).show();
                 tvCartCounter.setText("0");
                 tvPriceCounter.setText("0");
+                listCart.clear();
             }
         });
         //OnclickCart
@@ -126,9 +131,10 @@ public class MenuFood extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent1 = new Intent(getBaseContext(),Cart.class);
                 intent1.putExtra("totalPrice",tvPriceCounter.getText().toString());
-//                intent1.putExtra("object",listMenu.get(mPossition));
+//               intent1.putExtra("object",listMenu.get(mPossition));
                 intent1.putParcelableArrayListExtra("list", (ArrayList<Food>) listCart);
                 startActivity(intent1);
+
             }
         });
     }
